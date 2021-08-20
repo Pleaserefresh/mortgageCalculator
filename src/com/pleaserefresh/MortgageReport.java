@@ -2,9 +2,9 @@ package com.pleaserefresh;
 
 import java.text.NumberFormat;
 
-public class Print {
-    protected static void printMortgage(int principal, float annualInterest, byte years) {
-        double mortgage = com.pleaserefresh.Main.calculateMortgage(principal, annualInterest, years);
+public class MortgageReport {
+    public static void printMortgage(int principal, float annualInterest, byte years) {
+        double mortgage = MortgageCalculator.calculateMortgage(principal, annualInterest, years);
         String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
         System.out.println();
         System.out.println("MORTGAGE");
@@ -12,12 +12,12 @@ public class Print {
         System.out.println("Monthly Payments: " + mortgageFormatted);
     }
 
-    protected static void printPaymentSchedule(int principal, float annualInterest, byte years) {
+    public static void printPaymentSchedule(int principal, float annualInterest, byte years) {
         System.out.println();
         System.out.println("PAYMENT SCHEDULE");
         System.out.println("----------------");
-        for (short month = 1; month <= years * com.pleaserefresh.Main.getMonthsInYear(); month++) {
-            double balance = com.pleaserefresh.Main.calculateBalance(principal, annualInterest, years, month);
+        for (short month = 1; month <= years * Main.MONTHS_IN_YEAR; month++) {
+            double balance = MortgageCalculator.calculateBalance(principal, annualInterest, years, month);
             System.out.println(NumberFormat.getCurrencyInstance().format(balance));
         }
     }

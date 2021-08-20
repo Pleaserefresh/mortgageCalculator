@@ -2,7 +2,11 @@ package com.pleaserefresh;
 
 import java.util.Scanner;
 
-public class Read extends Print {
+public class Console {
+    public static double readNumber() {
+        return readNumber("Hello World",0 ,0 );
+    }
+
     public static double readNumber(String prompt, double min, double max) {
         Scanner scanner = new Scanner(System.in);
         double value;

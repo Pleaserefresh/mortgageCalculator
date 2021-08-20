@@ -1,14 +1,14 @@
 package com.pleaserefresh;
 
-public class Calculate extends Read {
+public class MortgageCalculator {
     public static double calculateBalance(
             int principal,
             float annualInterest,
             byte years,
             short numberOfPaymentsMade
     ) {
-        float monthlyInterest = annualInterest / Main.getPERCENT() / Main.getMonthsInYear();
-        float numberOfPayments = years * Main.getMonthsInYear();
+        float monthlyInterest = annualInterest / Main.PERCENT / Main.MONTHS_IN_YEAR;
+        float numberOfPayments = years * Main.MONTHS_IN_YEAR;
 
         double balance = principal
                 * (Math.pow(1 + monthlyInterest, numberOfPayments) - Math.pow(1 + monthlyInterest, numberOfPaymentsMade))
@@ -22,8 +22,8 @@ public class Calculate extends Read {
             float annualInterest,
             byte years) {
 
-        float monthlyInterest = annualInterest / Main.getPERCENT() / Main.getMonthsInYear();
-        float numberOfPayments = years * Main.getMonthsInYear();
+        float monthlyInterest = annualInterest / Main.PERCENT / Main.MONTHS_IN_YEAR;
+        float numberOfPayments = years * Main.MONTHS_IN_YEAR;
 
         double mortgage = principal
                 * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))
